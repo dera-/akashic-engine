@@ -1,4 +1,6 @@
 namespace g {
+	export type Filter = (width: number, height: number, data: any[]) => void;
+
 	/**
 	 * `Pane` のコンストラクタに渡すことができるパラメータ。
 	 * 各メンバの詳細は `Pane` の同名メンバの説明を参照すること。
@@ -53,6 +55,8 @@ namespace g {
 		 * この値を変更した場合、 `this.invalidate()` を呼び出す必要がある。
 		 */
 		backgroundEffector: SurfaceEffector;
+
+		filters: Filter[];
 
 		/**
 		 * @private
@@ -179,6 +183,10 @@ namespace g {
 			}
 			renderer.drawImage(this._childrenSurface, 0, 0, this._childrenArea.width, this._childrenArea.height, 0, 0);
 			renderer.restore();
+
+			if (this.filters && this.filters.length > 0) {
+				this._cache.applyFilters(this.filters);
+			}
 		}
 
 		/**

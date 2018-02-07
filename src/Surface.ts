@@ -107,5 +107,7 @@ namespace g {
 			// _destroyedはundefinedかtrueなため、常にbooleanが返すように!!演算子を用いる
 			return !!this._destroyed;
 		}
+
+		abstract applyFilters(filters: Filter[]): void;
 	}
 }
