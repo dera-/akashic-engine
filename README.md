@@ -6,6 +6,7 @@
 
 JavaScriptゲームエンジン [Akashic Engine](https://akashic-games.github.io/) のコアライブラリです。
 ゲーム開発者向けの環境非依存なクラス群を提供します。
+* releaseタグ更新通知ジョブテスト用に追記
 
 ## 利用方法
 
